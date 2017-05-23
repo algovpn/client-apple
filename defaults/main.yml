@@ -1,0 +1,8 @@
+---
+# defaults file for client-apple
+
+pkcs12_PayloadCertificateUUID: "{{ 900000 | random | to_uuid | upper }}"
+VPN_PayloadIdentifier: "{{ 800000 | random | to_uuid | upper }}"
+CA_PayloadIdentifier: "{{ 700000 | random | to_uuid | upper }}"
+client_config_output_folder: "{{ lookup('env', 'HOME') + '/.algovpn/configs/' + '/' }}"
+#client_config_output_folder: "{{ playbook_dir }}"

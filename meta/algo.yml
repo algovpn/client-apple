@@ -1,0 +1,16 @@
+algo:
+  name: apple
+  type: client
+  arguments:
+    - argument: --on-demand-wifi
+      default: False
+      help: Enable on-demand for WiFi.
+      dest: apple_ondemand_wifi
+    - argument: --on-demand-cell
+      default: False
+      help: Enable on-demand for Cellular.
+      dest: apple_on_demand_cell
+    - argument: --exclude-wifi-networks
+      help: Exclusion list of wifi networks for on-demand WiFi.
+      dest: wifi_exclusion_networks
+
