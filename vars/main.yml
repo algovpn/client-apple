@@ -1,2 +1,6 @@
 ---
 # vars file for client-apple
+
+pkcs12_PayloadCertificateUUID: "{{ 900000 | random | to_uuid | upper }}"
+VPN_PayloadIdentifier: "{{ 800000 | random | to_uuid | upper }}"
+CA_PayloadIdentifier: "{{ 700000 | random | to_uuid | upper }}"

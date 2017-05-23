@@ -4,13 +4,16 @@ algo:
   arguments:
     - argument: --on-demand-wifi
       default: False
-      help: Enable on-demand for WiFi.
-      dest: apple_ondemand_wifi
+      help: 'apple: Enable on-demand for WiFi.'
+      dest: apple_on_demand_wifi
+      action: store_true
     - argument: --on-demand-cell
       default: False
-      help: Enable on-demand for Cellular.
+      help: 'apple: Enable on-demand for Cellular.'
       dest: apple_on_demand_cell
+      action: store_true
     - argument: --exclude-wifi-networks
-      help: Exclusion list of wifi networks for on-demand WiFi.
+      help: 'apple: Exclusion list of wifi networks for on-demand WiFi.'
       dest: wifi_exclusion_networks
+      nargs: +
 

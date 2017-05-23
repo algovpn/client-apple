@@ -7,13 +7,12 @@
             <dict>
                 <key>IKEv2</key>
                 <dict>
-                    {% if (OnDemandEnabled_WIFI is defined and OnDemandEnabled_WIFI == 'Y') or (OnDemandEnabled_Cellular is defined and OnDemandEnabled_Cellular == 'Y') %}
+                    {% if (apple_on_demand_wifi) or (apple_on_demand_cell) %}
                         <key>OnDemandEnabled</key>
                         <integer>1</integer>
                         <key>OnDemandRules</key>
                         <array>
-                            {% if OnDemandEnabled_WIFI_EXCLUDE is defined and OnDemandEnabled_WIFI_EXCLUDE != '_null' %}
-                                {% set WIFI_EXCLUDE_LIST = OnDemandEnabled_WIFI_EXCLUDE.split(',') %}
+                            {% if wifi_exclusion_networks %}
                                 <dict>
                                     <key>Action</key>
                                     <string>Disconnect</string>
@@ -21,7 +20,7 @@
                                     <string>WiFi</string>
                                     <key>SSIDMatch</key>
                                     <array>
-                                        {% for network_name in WIFI_EXCLUDE_LIST %}
+                                        {% for network_name in wifi_exclusion_networks %}
                                             <string>{{ network_name|e }}</string>
                                         {% endfor %}
                                     </array>
@@ -30,7 +29,7 @@
                             {% endif %}
                             <dict>
                                 <key>Action</key>
-                                {% if OnDemandEnabled_WIFI is defined and OnDemandEnabled_WIFI == 'Y' %}
+                                {% if apple_on_demand_wifi %}
                                     <string>Connect</string>
                                 {% else %}
                                     <string>Disconnect</string>
@@ -42,7 +41,7 @@
                             </dict>
                             <dict>
                                 <key>Action</key>
-                                {% if OnDemandEnabled_Cellular is defined and OnDemandEnabled_Cellular == 'Y' %}
+                                {% if apple_on_demand_cell %}
                                     <string>Connect</string>
                                 {% else %}
                                     <string>Disconnect</string>

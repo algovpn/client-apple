@@ -1,5 +1,20 @@
 ---
 - hosts: localhost
   remote_user: root
+  vars:
+    - remote_host: '127.0.0.1'
+    - apple_on_demand_wifi: True
+    - wifi_exclusion_networks: ['test', 'test2']
+  pre_tasks:
+    - name: Generate keys
+      vpn_keymanager:
+        ca_cn: '127.0.0.1'
+        clients: ['client1', 'client2']
+      register: keymanager
+      no_log: True
+    - name: set facts
+      set_fact:
+        keymanager: "{{ keymanager }}"
+
   roles:
-    - client-apple
+    - { role: client-apple }
