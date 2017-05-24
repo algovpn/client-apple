@@ -1,6 +1,5 @@
 ---
 # tasks file for client-apple
-
 - name: Build the mobileconfigs
   template:
     src: mobileconfig.j2
