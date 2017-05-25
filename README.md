@@ -1,22 +1,30 @@
-Role Name
-=========
+algovpn.client-apple
+====================
 
-A brief description of the role goes here.
+Apple client mobileconfig generation.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+The role requires that the algovpn.vpn role or KeyManager ansible
+module be run before this role. See tests/test.yml for an example of
+using this role externally.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+
+| Name           | Default Value | Description                        |
+| -------------- | ------------- | -----------------------------------|
+| `apple_on_demand_wifi` | false | Toggle on demand WiFi support.|
+| `apple_on_demand_cell` | false | Toggle on demand cellular support.
+| `wifi_exclusion_networks` | [] | A list of WiFi networks to exclude for on demand |
+| `client_config_output_folder` | ~/.algovpn/configs | Output folder of the generated config files |
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+algovpn.vpn
 
 Example Playbook
 ----------------
@@ -25,14 +33,14 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: algovpn.client-apple, apple_on_demand_wifi: True }
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+AlgoVPN
