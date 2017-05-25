@@ -19,7 +19,7 @@ Role Variables
 | `apple_on_demand_wifi` | false | Toggle on demand WiFi support.|
 | `apple_on_demand_cell` | false | Toggle on demand cellular support.
 | `wifi_exclusion_networks` | [] | A list of WiFi networks to exclude for on demand |
-| `client_config_output_folder` | ~/.algovpn/configs | Output folder of the generated config files |
+| `client_config_output_folder` | cwd | Output folder of the generated config files |
 
 Dependencies
 ------------

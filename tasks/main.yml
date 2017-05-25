@@ -3,7 +3,7 @@
 - name: Build the mobileconfigs
   template:
     src: mobileconfig.j2
-    dest: "{{ client_config_output_folder + item.0.name + '.mobileconfig' }}"
+    dest: "{{ client_config_output_folder + '/' + item.0.name + '.mobileconfig' }}"
     mode: 0600
   become: no
   delegate_to: localhost

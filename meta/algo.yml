@@ -16,4 +16,7 @@ algo:
       help: 'apple: Exclusion list of wifi networks for on-demand WiFi.'
       dest: wifi_exclusion_networks
       nargs: +
+    - argument: --output-folder
+      help: 'apple: Output folder for the configs'
+      dest: client_config_output_folder
 
