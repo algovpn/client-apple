@@ -19,4 +19,5 @@ algo:
     - argument: --output-folder
       help: 'apple: Output folder for the configs'
       dest: client_config_output_folder
+      default: './'
 

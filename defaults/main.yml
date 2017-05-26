@@ -1,7 +1,7 @@
 ---
 # defaults file for client-apple
 
-client_config_output_folder: "{{ lookup('env', 'PWD') }}"
+client_config_output_folder: "./"
 apple_on_demand_wifi: False
 apple_on_demand_cell: False
 wifi_exclusion_networks: []
